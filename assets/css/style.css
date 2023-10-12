@@ -4,13 +4,21 @@
     margin: 0;
     box-sizing: border-box;
 }
-
+/*General Styling*/
+body{
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    /*generic project stye*/
+    color: #3a3a3a;
+}
 header {
     background-color: lightcoral;
 }
 
 main {
     background-color: lightblue;
+    flex: 1 0 auto; /*make main element take up any surplus to push footer down*/
 }
 
 footer {
