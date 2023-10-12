@@ -5,7 +5,7 @@
     box-sizing: border-box;
 }
 /*General Styling*/
-body{
+body {
     min-height: 100vh;
     display: flex;
     flex-direction: column;
@@ -13,13 +13,22 @@ body{
     color: #3a3a3a;
     font-family: 'Lato' sans-serif;
 }
+
 header {
     background-color: lightcoral;
+}
+h1{
+    font-family: 'Oswald', sans-serif;
 }
 
 main {
     background-color: lightblue;
-    flex: 1 0 auto; /*make main element take up any surplus to push footer down*/
+    flex: 1 0 auto;
+    /*make main element take up any surplus to push footer down*/
+    flex-direction: column;
+    /*Generic PRoject direction*/
+    color: #3a3a3a;
+    font-family: 'Lato' sans-serif;
 }
 
 footer {
