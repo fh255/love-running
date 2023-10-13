@@ -83,10 +83,15 @@ nav {
 
 /*Main Content*/
 main {
-    background-color: lightblue;
     flex: 1 0 auto;
     /* make main element take up any surplus to push footer down*/
     margin-top: 47px;
+}
+/*hero id*/
+#hero{
+    height:600px;
+    width:100%;
+    background-color: lightgreen;
 }
 
 /*Footer*/
@@ -97,7 +102,8 @@ main {
     justify-content: space-evenly;
     list-style-type: none;
 }
-#social-networks i{
+
+#social-networks i {
     font-size: 160%;
     padding: 5%;
     color: #3a3a3a;
