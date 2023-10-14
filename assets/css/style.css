@@ -23,6 +23,9 @@ h3 {
     letter-spacing: 2px;
     color: #252525
 }
+.hidden-heading{
+    display: none;
+}
 
 /*Header*/
 header {
@@ -106,8 +109,8 @@ main {
     text-align: center;
 }
 
-#benefits-physical > div,
-#benefits-mental > div {
+#benefits-physical>div,
+#benefits-mental>div {
     line-height: 20px;
     margin-bottom: 20px;
 }
@@ -117,18 +120,22 @@ main {
 }
 
 #benefits hr {
-    border-top : 1px solid #3a3a3a;
+    border-top: 1px solid #3a3a3a;
     margin: 5px 0;
 }
 
 #circle-cover-bg {
-    background-image: url("../images/reasons-image.webp") no-repeat center center / cover;
+    background: url('../images/reasons-image.webp') no-repeat top center / cover;
     height: 90vw;
-    width:90vw;
-    margin-bottom:20px;
+    width: 90vw;
+    margin-bottom: 20px;
+    /* Makes the square image into a circle */
+    border-radius: 50%;
+    max-width: 300px;
+    max-height: 300px;
 }
 
-#benifits-image {
+#benefits-image {
     display: flex;
     align-items: center;
     justify-content: center;
@@ -149,7 +156,8 @@ main {
 }
 
 #cover-text {
-    background-color: rgb(241, 109, 107, .7);
+    /* Final rgba value sets the opacity so it is semi-transparent */
+    background-color: rgba(241, 109, 107, .7);
     font-size: 130%;
     position: absolute;
     bottom: 30px;
@@ -249,22 +257,47 @@ main {
 
     }
 }
-@media screen and (min-width: 786px){
+
+@media screen and (min-width: 786px) {
+
     /*benifit section*/
-    #benifits{
+    #benifits {
         display: flex;
         flex-direction: row;
     }
-    #benifits>div{
+
+    #benifits>div {
         flex: 1;
     }
-    #benifits-image{
-        order:0;
+
+    #benifits-image {
+        order: 0;
     }
-    #benifits-mental{
-        order:1;
+
+    #benifits-mental {
+        order: 1;
     }
-    #benifits-mental> div{
+
+    #benifits-mental>div {
         align-self: flex-start;
     }
+}
+
+#times {
+    background: url('../images/dublin-city.webp') no-repeat center/cover;
+    /* Handles responsivity without the need for a media query */
+    display: flex;
+    flex-wrap: wrap;
+}
+#times div{
+    color: #fafafa;
+    background-color: rgba(0, 0, 0, .6);
+    padding: 15px;
+    text-align: center;
+    flex-basis: 200px;
+    flex-grow: 1;
+    border: 2px solid white;
+}
+#times h3{
+    color: #fafafa;
 }
