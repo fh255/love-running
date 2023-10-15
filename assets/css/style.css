@@ -301,3 +301,11 @@ main {
 #times h3{
     color: #fafafa;
 }
+/*Gallery images*/
+#photoes img{
+    width:100%;
+    line-height: 0rem;
+}
+#photoes{
+    line-height:0;
+}
