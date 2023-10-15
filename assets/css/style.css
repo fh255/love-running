@@ -1,18 +1,21 @@
-/* Asterisk wildcare selector to oversize default styles added by the browser*/
+/* Google fonts import */
+@import url('https://fonts.googleapis.com/css2?family=Lato:wght@300&family=Oswald:wght@200;300;400;500;600;700&display=swap');
+
+/* Asterisk wildcard selector to override default styles added by the browser */
 * {
     padding: 0;
     margin: 0;
     box-sizing: border-box;
 }
 
-/*General Styling*/
+/* General styles */
 body {
     min-height: 100vh;
     display: flex;
     flex-direction: column;
-    /*generic project stye*/
+    /* Generic project styles */
     color: #3a3a3a;
-    font-family: 'Lato' sans-serif;
+    font-family: 'Lato', sans-serif;
 }
 
 h1,
@@ -21,13 +24,10 @@ h3 {
     font-family: 'Oswald', sans-serif;
     text-transform: uppercase;
     letter-spacing: 2px;
-    color: #252525
-}
-.hidden-heading{
-    display: none;
+    color: #252525;
 }
 
-/*Header*/
+/* Header */
 header {
     background-color: #ffffff;
     padding: 0 1rem;
@@ -45,9 +45,6 @@ header a {
     color: inherit;
 }
 
-
-
-/* ul styling*/
 #menu {
     font-size: 110%;
     letter-spacing: 4px;
@@ -62,20 +59,19 @@ header a {
     border-bottom: 1px solid #3a3a3a;
 }
 
-/* navbar style for drop down menu*/
+/* Navbar styles with dropdown toggle */
 nav {
     position: absolute;
     background-color: #ffffff;
     width: 100%;
     left: 0;
-    padding: 0 1em;
+    padding: 0 1rem;
     box-shadow: 0 2px 2px #3a3a3a;
     display: none;
     top: 100%;
 }
 
-/*nav toggle*/
-
+/* Nav toggle */
 #nav-toggle:checked~nav {
     display: block;
 }
@@ -88,25 +84,48 @@ nav {
     font-size: 2rem;
 }
 
-/*Main Content*/
+/* Main content */
 main {
+    /* Make main element take up any surplus space to push footer down */
     flex: 1 0 auto;
-    /* make main element take up any surplus to push footer down*/
     margin-top: 47px;
 }
 
-/*reasons*/
-#reasons {
-    margin: auto;
-    margin-top: 20px;
-    width: 90%;
-
+/* Hero section */
+#hero {
+    height: 600px;
+    width: 100%;
+    background: url("../images/hero-image.webp") no-repeat center center/cover;
+    position: relative;
 }
 
-#reasons>h2 {
-    font-size: 280%;
+#cover-text {
+    /* Final rgba value sets the opacity so it is semi-transparent */
+    background-color: rgba(241, 109, 107, .7);
+    font-size: 130%;
+    position: absolute;
+    bottom: 30px;
+    width: 80%;
+    min-height: 200px;
+    padding-top: 40px;
+    padding-left: 10px;
+}
+
+#cover-text>h2,
+#cover-text>h3 {
+    color: #ffffff;
+}
+
+/* Reasons section */
+#reasons {
+    width: 90%;
+    margin: 20px auto;
+}
+
+#reasons h2 {
     margin-bottom: 20px;
     text-align: center;
+    font-size: 280%;
 }
 
 #benefits-physical>div,
@@ -141,41 +160,46 @@ main {
     justify-content: center;
 }
 
-/*hero id*/
-#hero {
-    height: 600px;
+/* Meetup Times section */
+#times {
+    background: url('../images/dublin-city.webp') no-repeat center/cover;
+    /* Handles responsivity without the need for a media query */
+    display: flex;
+    flex-wrap: wrap;
+}
+
+#times div {
+    color: #fafafa;
+    background-color: rgba(0, 0, 0, .6);
+    padding: 15px;
+    text-align: center;
+    /* This will not wrap on screens of less than 400px wide.
+    Each div will expand to fill the available space on its row */
+    flex-basis: 200px;
+    flex-grow: 1;
+    /* Creates a grid of meetup time divs over the background image */
+    border: 2px solid white;
+}
+
+#times h3 {
+    /* Override the heading colour set in general styles */
+    color: #fafafa;
+}
+
+/* Gallery page */
+#photos img {
     width: 100%;
-    background-color: lightgreen;
-    background: url("../images/hero-image.webp") no-repeat top center/cover;
-    height: 90vw;
-    width: 90vw;
-    margin-bottom: 20px;
-    border-radius: 50%;
-    max-width: 300px;
-    max-height: 300px;
+    line-height: 1em;
 }
 
-#cover-text {
-    /* Final rgba value sets the opacity so it is semi-transparent */
-    background-color: rgba(241, 109, 107, .7);
-    font-size: 130%;
-    position: absolute;
-    bottom: 30px;
-    width: 80%;
-    min-height: 200px;
-    padding-top: 40px;
-    padding-left: 10px;
+#photos {
+    line-height: 0;
 }
 
-#cover-text>h2,
-#cover-text>h3 {
-    color: #ffffff;
-}
-
-/*Footer*/
+/* Footer */
 #social-networks {
     text-align: center;
-    padding: 20px o;
+    padding: 20px 0;
     display: flex;
     justify-content: space-evenly;
     list-style-type: none;
@@ -187,12 +211,18 @@ main {
     color: #3a3a3a;
 }
 
+/* Media query: large or landscape phones (576px and up) */
+@media screen and (min-width: 576px) {
+    #photos {
+        column-count: 2;
+        column-gap: 0;
+    }
+}
 
+/* Media query: tablets and larger (768px and up) */
+@media screen and (min-width: 768px) {
 
-/* media querry : tablet and larger (786px and larger)*/
-@media screen and (min-width: 786px) {
-
-    /*header*/
+    /* Header */
     nav {
         display: block;
         position: relative;
@@ -205,7 +235,7 @@ main {
         display: flex;
     }
 
-    menu>li {
+    #menu>li {
         padding-left: 1rem;
     }
 
@@ -216,96 +246,81 @@ main {
     #logo {
         font-size: 280%;
         line-height: 75px;
-        margin: 0, 0.5rem;
+        margin: 0 0.5rem;
     }
 
-    /*main content*/
+    /* Main content */
     main {
-        /* push the main content down to accomodate larger header*/
+        /* Push main content down to accommodate larger header */
         margin-top: 79px;
     }
 
-    /*Hero*/
+    /* Hero */
     #cover-text {
         width: 300px;
         right: 50px;
     }
 
-    /*reasons section*/
-    #benefits-mental,
-    #benefits-physical {
+    /* Reasons section */
+    #benefits-physical,
+    #benefits-mental {
         display: flex;
         flex-direction: column;
         width: 100%;
     }
 
-    #benefits-mental>div,
-    #benefits-physical>div {
+    #benefits-physical>div,
+    #benefits-mental>div {
         width: 75%;
     }
 
-    #benefits-physical>div {
+    #benefits-mental>div {
         text-align: end;
         align-self: flex-end;
     }
-}
 
-/*larger device laptop or desktop*/
-@media screen and (min-width: 992px) {
-    #menu a:hover {
-        border-bottom: 1px solid #3a3a3a;
-
+    /* Gallery */
+    #photos {
+        column-count: 3;
     }
 }
 
-@media screen and (min-width: 786px) {
+/* Large devices (laptops and desktops, 992px and up) */
+@media screen and (min-width: 992px) {
+    #menu a:hover {
+        border-bottom: 1px solid #3a3a3a;
+    }
 
-    /*benifit section*/
-    #benifits {
+    /* Gallery */
+    #photos {
+        column-count: 4;
+    }
+}
+
+@media screen and (min-width: 1200px) {    
+    /* Reasons section */
+    #benefits {
         display: flex;
         flex-direction: row;
     }
 
-    #benifits>div {
+    #benefits > div {
         flex: 1;
     }
 
-    #benifits-image {
-        order: 0;
+    #benefits-image {
+        order: 0
     }
 
-    #benifits-mental {
+    #benefits-mental {
         order: 1;
     }
 
-    #benifits-mental>div {
+    #benefits-mental > div {
         align-self: flex-start;
     }
-}
 
-#times {
-    background: url('../images/dublin-city.webp') no-repeat center/cover;
-    /* Handles responsivity without the need for a media query */
-    display: flex;
-    flex-wrap: wrap;
-}
-#times div{
-    color: #fafafa;
-    background-color: rgba(0, 0, 0, .6);
-    padding: 15px;
-    text-align: center;
-    flex-basis: 200px;
-    flex-grow: 1;
-    border: 2px solid white;
-}
-#times h3{
-    color: #fafafa;
-}
-/*Gallery images*/
-#photoes img{
-    width:100%;
-    line-height: 0rem;
-}
-#photoes{
-    line-height:0;
+    #benefits-physical > div {
+        align-self: flex-end;
+    }
 }
